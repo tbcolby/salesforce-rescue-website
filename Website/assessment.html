@@ -21,6 +21,18 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
         body { font-family: 'Inter', sans-serif; }
+        
+        /* Visual feedback for selected checkboxes */
+        input[type="checkbox"]:checked + span {
+            font-weight: 600;
+        }
+        input[type="checkbox"]:checked {
+            accent-color: #dc2626;
+        }
+        label:has(input[type="checkbox"]:checked) {
+            background-color: #fee2e2;
+            border-color: #dc2626;
+        }
     </style>
 </head>
 <body class="antialiased bg-white">
