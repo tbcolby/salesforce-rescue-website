@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emergency Salesforce rescue services for data loss, automation failures, deployment breakdowns, and integration outages. Senior-level response when your Salesforce org is at risk.">
+    <title>Salesforce Rescue | Emergency Salesforce Support & Recovery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rescue-red': '#dc2626',
+                        'rescue-dark': '#991b1b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="antialiased bg-white">
+    <!-- Emergency Banner -->
+    <div class="bg-rescue-red text-white py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center text-center">
+                <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-semibold text-sm sm:text-base">🚨 Emergency Salesforce Support Available • Same-Day Assessment Calls</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-rescue-red tracking-tight">Salesforce Rescue</h1>
+                    <span class="ml-3 px-2 py-1 text-xs font-semibold bg-rescue-red text-white rounded">24/7</span>
+                </div>
+                <a href="#assessment" class="inline-flex items-center px-4 py-2 bg-rescue-red text-white text-sm font-semibold rounded-lg hover:bg-rescue-dark transition-colors">
+                    <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    Schedule Assessment
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center px-4 py-2 bg-red-50 border border-red-200 rounded-full mb-6">
+                        <span class="relative flex h-3 w-3 mr-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rescue-red opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-rescue-red"></span>
+                        </span>
+                        <span class="text-sm font-medium text-red-900">Emergency Support Active</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 tracking-tight mb-6">
+                        When Salesforce Fails,<br>
+                        <span class="text-rescue-red">The Business Feels It Immediately</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl text-gray-600 max-w-3xl mx-auto mb-8">
+                        When Salesforce is unstable, the impact isn't abstract or technical — it's immediate and visible.
+                    </p>
+                </div>
+                
+                <!-- Impact Box -->
+                <div class="bg-white border-l-4 border-rescue-red shadow-lg rounded-lg p-6 sm:p-8 mb-8">
+                    <div class="space-y-3">
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            <p class="text-gray-800 text-lg">Sales teams lose confidence in their pipeline.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            <p class="text-gray-800 text-lg">Executives stop trusting reports.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            <p class="text-gray-800 text-lg">Support teams can't see customer history.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            <p class="text-gray-800 text-lg">Finance questions forecasts.</p>
+                        </div>
+                        <div class="flex items-start">
+                            <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            <p class="text-gray-800 text-lg">Leadership asks whether the system can be trusted at all.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-xl font-semibold text-gray-900 mb-2">
+                        At this stage, the risk is no longer "a Salesforce problem."<br>
+                        <span class="text-rescue-red">It's an operational, revenue, and credibility problem.</span>
+                    </p>
+                    <p class="text-lg text-gray-600 mb-8">
+                        This is the moment most teams realize they don't need <em>more features</em> — they need stability.
+                    </p>
+
+                    <a href="#assessment" class="inline-flex items-center px-8 py-4 bg-rescue-red text-white text-lg font-bold rounded-lg hover:bg-rescue-dark transform hover:scale-105 transition-all shadow-lg">
+                        <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                        Request an Immediate Salesforce Assessment
+                    </a>
+                    <p class="text-sm text-gray-500 mt-3">⏱️ Same-day assessments available for critical emergencies</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Hidden Cost of Waiting -->
+        <section class="py-16 sm:py-20 bg-white border-t border-gray-100">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">The Hidden Cost of Waiting</h2>
+                
+                <p class="text-xl text-gray-700 mb-8">Many Salesforce catastrophes get worse because teams hesitate.</p>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-10">
+                    <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                            <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                            </svg>
+                            They wait for:
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start text-gray-700">
+                                <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                A Salesforce Support response
+                            </li>
+                            <li class="flex items-start text-gray-700">
+                                <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                An SI escalation
+                            </li>
+                            <li class="flex items-start text-gray-700">
+                                <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                An internal admin to "take another look"
+                            </li>
+                            <li class="flex items-start text-gray-700">
+                                <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                A deployment window that never quite comes
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-50 rounded-lg p-6 border border-red-200">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                            <svg class="w-6 h-6 text-rescue-red mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            During that waiting period:
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start text-gray-800">
+                                <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Bad data spreads
+                            </li>
+                            <li class="flex items-start text-gray-800">
+                                <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Automation continues to misfire
+                            </li>
+                            <li class="flex items-start text-gray-800">
+                                <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Integrations retry and duplicate
+                            </li>
+                            <li class="flex items-start text-gray-800">
+                                <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Users work around the system
+                            </li>
+                            <li class="flex items-start text-gray-800">
+                                <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 15.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Trust erodes quietly
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-xl font-semibold text-gray-900 mb-6">
+                        Salesforce Rescue is designed to shorten that window.
+                    </p>
+                    <a href="#assessment" class="inline-flex items-center px-6 py-3 bg-rescue-red text-white text-base font-semibold rounded-lg hover:bg-rescue-dark transition-colors shadow-md">
+                        Get Help With a Salesforce Emergency
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Scenarios -->
+        <section class="py-16 sm:py-20 bg-gray-50">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Common Salesforce Emergency Scenarios</h2>
+                    <p class="text-xl text-gray-700">Teams usually find Salesforce Rescue while searching for answers like:</p>
+                </div>
+
+                <div class="bg-white rounded-lg shadow-md p-6 sm:p-8 mb-8">
+                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                        <div class="flex items-center bg-red-50 border border-red-200 rounded-md px-4 py-3">
+                            <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-800">"Salesforce data loss recovery"</span>
+                        </div>
+                        <div class="flex items-center bg-red-50 border border-red-200 rounded-md px-4 py-3">
+                            <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-800">"Salesforce deployment failed"</span>
+                        </div>
+                        <div class="flex items-center bg-red-50 border border-red-200 rounded-md px-4 py-3">
+                            <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-800">"Salesforce automation breaking"</span>
+                        </div>
+                        <div class="flex items-center bg-red-50 border border-red-200 rounded-md px-4 py-3">
+                            <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-800">"Salesforce flow infinite loop"</span>
+                        </div>
+                        <div class="flex items-center bg-red-50 border border-red-200 rounded-md px-4 py-3">
+                            <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-800">"Salesforce support not responding"</span>
+                        </div>
+                        <div class="flex items-center bg-red-50 border border-red-200 rounded-md px-4 py-3">
+                            <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-800">"Salesforce admin left company"</span>
+                        </div>
+                        <div class="flex items-center bg-red-50 border border-red-200 rounded-md px-4 py-3">
+                            <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-800">"Salesforce integration down"</span>
+                        </div>
+                        <div class="flex items-center bg-red-50 border border-red-200 rounded-md px-4 py-3">
+                            <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-800">"Salesforce reports wrong"</span>
+                        </div>
+                        <div class="flex items-center bg-red-50 border border-red-200 rounded-md px-4 py-3">
+                            <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-800">"Salesforce CPQ broken"</span>
+                        </div>
+                        <div class="flex items-center bg-red-50 border border-red-200 rounded-md px-4 py-3">
+                            <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                            </svg>
+                            <span class="text-sm font-medium text-gray-800">"Salesforce permission issues"</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <p class="text-xl font-semibold text-gray-900 mb-6">
+                        If you're searching phrases like these, you're likely already in a rescue scenario.
+                    </p>
+                    <a href="#assessment" class="inline-flex items-center px-6 py-3 bg-rescue-red text-white text-base font-semibold rounded-lg hover:bg-rescue-dark transition-colors shadow-md">
+                        Schedule a Salesforce Rescue Assessment
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Data Loss, Corruption, and Integrity Failures</h2>
+                
+                <p>Few Salesforce events create panic faster than data problems.</p>
+
+                <h3>Common triggers include:</h3>
+                <ul>
+                    <li>Accidental mass deletes</li>
+                    <li>Faulty Data Loader imports</li>
+                    <li>Incorrect field mapping</li>
+                    <li>Duplicate record explosions</li>
+                    <li>Sandbox refreshes overwriting production assumptions</li>
+                    <li>Partial restores with unclear gaps</li>
+                    <li>Orphaned records breaking reporting</li>
+                </ul>
+
+                <p>Data issues often coexist with automation and integration failures, which makes them especially dangerous.</p>
+
+                <p class="emphasis">Salesforce Rescue focuses on containment first — then clarity.</p>
+
+                <a href="#assessment" class="cta-button">Talk to a Salesforce Data Recovery Specialist</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Automation, Flow, and Apex Failures Under Pressure</h2>
+                
+                <p>Modern Salesforce orgs rely heavily on automation. When it breaks, everything downstream suffers.</p>
+
+                <h3>Common automation emergencies:</h3>
+                <ul>
+                    <li>Infinite Flow loops</li>
+                    <li>CPU time limit errors</li>
+                    <li>Record lock conflicts</li>
+                    <li>Triggers firing unexpectedly</li>
+                    <li>Validation rules blocking critical saves</li>
+                    <li>Automations breaking integrations silently</li>
+                    <li>Changes deployed without test coverage</li>
+                </ul>
+
+                <p class="emphasis">Salesforce Rescue intervenes to stabilize automation safely — not experiment in production.</p>
+
+                <a href="#assessment" class="cta-button">Get Automation Help Now</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Deployment, Release, and CI/CD Breakdowns</h2>
+                
+                <p>Deployments fail most often when timing matters most.</p>
+
+                <h3>Typical scenarios:</h3>
+                <ul>
+                    <li>Failed production deployments</li>
+                    <li>Hotfixes blocked by dependencies</li>
+                    <li>Profiles and permissions breaking access</li>
+                    <li>Metadata conflicts across environments</li>
+                    <li>Rollbacks not possible</li>
+                    <li>CI/CD pipelines stuck or misconfigured</li>
+                </ul>
+
+                <p class="emphasis">These moments require senior judgment — not trial and error.</p>
+
+                <a href="#assessment" class="cta-button">Emergency Deployment Support</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Integration Failures and API Incidents</h2>
+                
+                <p>Integrations often fail quietly — until they don't.</p>
+
+                <h3>High-risk integration failures include:</h3>
+                <ul>
+                    <li>ERP sync outages</li>
+                    <li>API limit exhaustion</li>
+                    <li>Authentication token failures</li>
+                    <li>Middleware outages</li>
+                    <li>Duplicate record creation</li>
+                    <li>Partial syncs corrupting data</li>
+                    <li>No monitoring or alerting</li>
+                </ul>
+
+                <p class="emphasis">Salesforce Rescue helps identify where truth breaks and stop the spread.</p>
+
+                <a href="#assessment" class="cta-button">Fix a Salesforce Integration Outage</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>Security, Access, and Compliance Incidents</h2>
+                
+                <p>Security issues don't allow for learning curves.</p>
+
+                <h3>Common triggers:</h3>
+                <ul>
+                    <li>Users seeing data they shouldn't</li>
+                    <li>Users blocked from critical records</li>
+                    <li>Permission drift over time</li>
+                    <li>Guest user access misconfiguration</li>
+                    <li>Compliance audit panic</li>
+                    <li>Regulatory exposure (SOX, HIPAA, FINRA)</li>
+                </ul>
+
+                <p class="emphasis">These situations demand careful, minimal-change intervention.</p>
+
+                <a href="#assessment" class="cta-button">Address a Salesforce Security Issue</a>
+            </div>
+        </section>
+
+        <section class="mindset">
+            <div class="container">
+                <h2>Why "We'll Be Careful" Isn't a Plan</h2>
+                
+                <p>During emergencies, teams often freeze — afraid to make things worse.</p>
+
+                <p>That fear is rational.</p>
+
+                <h3>Uncoordinated fixes often:</h3>
+                <ul>
+                    <li>Compound data damage</li>
+                    <li>Mask root causes</li>
+                    <li>Break integrations</li>
+                    <li>Create future incidents</li>
+                </ul>
+
+                <p class="emphasis">Salesforce Rescue exists to bring controlled intervention when caution alone isn't enough.</p>
+
+                <a href="#assessment" class="cta-button">Bring in a Senior Salesforce Architect</a>
+            </div>
+        </section>
+
+        <section>
+            <div class="container">
+                <h2>How the Assessment Call Actually Helps</h2>
+                
+                <p>The assessment is not a sales pitch.</p>
+
+                <h3>It's a working session designed to:</h3>
+                <ul>
+                    <li>Establish what is truly broken</li>
+                    <li>Separate symptoms from causes</li>
+                    <li>Identify immediate containment steps</li>
+                    <li>Clarify risks of action vs inaction</li>
+                    <li>Decide whether rescue engagement makes sense</li>
+                </ul>
+
+                <p class="emphasis">Many clients describe this as the moment "the fog lifts."</p>
+
+                <a href="#assessment" class="cta-button">Book an Assessment Call</a>
+            </div>
+        </section>
+
+        <section id="assessment" class="scheduling">
+            <div class="container">
+                <h2>Schedule Your Assessment Call</h2>
+                
+                <p>Assessment calls are scheduled via Calendly to remove friction and delay.</p>
+
+                <h3>You'll be able to:</h3>
+                <ul>
+                    <li>Choose the earliest available time</li>
+                    <li>Indicate urgency level</li>
+                    <li>Request same-day priority if available</li>
+                    <li>Share context before the call</li>
+                </ul>
+
+                <p class="note">For severe or time-critical Salesforce emergencies, same-day assessments may be available at a priority rate.</p>
+
+                <!-- Calendly inline widget begin -->
+                <div class="calendly-inline-widget" data-url="https://calendly.com/your-calendly-link?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                <!-- Calendly inline widget end -->
+            </div>
+        </section>
+
+        <section class="final-cta">
+            <div class="container">
+                <h2>If You're Still Unsure</h2>
+                
+                <p>If you're reading this page carefully, it usually means something important is at risk.</p>
+
+                <p>You don't need to decide on a long engagement.<br>
+                You don't need to commit to a rebuild.<br>
+                You don't need to justify the call internally yet.</p>
+
+                <p class="emphasis">You just need clarity.</p>
+
+                <a href="#assessment" class="cta-button-large">Schedule a Salesforce Assessment</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Salesforce Rescue. Emergency Salesforce support and recovery services.</p>
+        </div>
+    </footer>
+</body>
+</html>

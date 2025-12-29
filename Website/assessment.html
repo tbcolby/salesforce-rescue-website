@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Salesforce Emergency Assessment. 60-second diagnostic to determine if your org is in crisis. Get immediate severity score and next steps.">
+    <title>Free Emergency Assessment | Salesforce Rescue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rescue-red': '#dc2626',
+                        'rescue-dark': '#991b1b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="antialiased bg-white">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-rescue-red tracking-tight">Salesforce Rescue</a>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="index.html" class="text-gray-700 hover:text-rescue-red font-medium transition-colors">Home</a>
+                    <a href="team.html" class="text-gray-700 hover:text-rescue-red font-medium transition-colors">Team</a>
+                    <a href="first-responder.html" class="text-gray-700 hover:text-rescue-red font-medium transition-colors">Join Us</a>
+                    <a href="assessment.html" class="text-rescue-red font-medium">Free Assessment</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Emergency Diagnostic Quiz -->
+        <section class="py-16 sm:py-20 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center px-4 py-2 bg-rescue-red text-white rounded-full mb-4">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-semibold text-sm">FREE EMERGENCY ASSESSMENT</span>
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">
+                        Is Your Salesforce Org in Crisis?
+                    </h1>
+                    <p class="text-xl text-gray-700 mb-2">Take our 60-second diagnostic to find out</p>
+                    <p class="text-sm text-gray-600">1,247 orgs assessed this month</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-2xl p-8 border-4 border-rescue-red">
+                    <!-- Severity Meter -->
+                    <div class="mb-8">
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="text-sm font-semibold text-gray-600">Emergency Severity Score:</span>
+                            <span class="text-2xl font-black text-rescue-red" id="scoreDisplay">0/100</span>
+                        </div>
+                        <div class="w-full h-6 bg-gray-200 rounded-full overflow-hidden">
+                            <div id="severityMeter" class="h-full bg-gradient-to-r from-green-500 via-yellow-500 to-red-600 transition-all duration-500" style="width: 0%"></div>
+                        </div>
+                        <div class="flex justify-between text-xs text-gray-500 mt-1">
+                            <span>Low Risk</span>
+                            <span id="severityLabel" class="font-bold">Take Assessment</span>
+                            <span>CRITICAL</span>
+                        </div>
+                    </div>
+
+                    <!-- Quiz Form -->
+                    <form id="emergencyQuiz" class="space-y-6">
+                        <!-- Question 1 -->
+                        <div class="quiz-question">
+                            <label class="block text-lg font-bold text-gray-900 mb-3">
+                                1. What's broken?
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q1" value="10" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Users can't access Salesforce at all</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q1" value="8" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Data looks wrong/corrupted</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q1" value="7" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Specific feature/process not working</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q1" value="6" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Integration stopped working</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q1" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Performance issues/slowness</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="quiz-question">
+                            <label class="block text-lg font-bold text-gray-900 mb-3">
+                                2. How many users are impacted?
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q2" value="10" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Everyone / Company-wide</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q2" value="7" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Entire department</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q2" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Specific team</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q2" value="3" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Just a few people</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="quiz-question">
+                            <label class="block text-lg font-bold text-gray-900 mb-3">
+                                3. What's the business impact?
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q3" value="10" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Revenue/deals at risk RIGHT NOW</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q3" value="9" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Compliance/legal exposure</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q3" value="8" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Critical deadline approaching</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q3" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Operations disrupted but working around it</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q3" value="2" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Annoying but not urgent</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="quiz-question">
+                            <label class="block text-lg font-bold text-gray-900 mb-3">
+                                4. When did this start?
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q4" value="8" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Last hour</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q4" value="7" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Today</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q4" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">This week</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q4" value="3" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Ongoing for weeks/months</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="quiz-question">
+                            <label class="block text-lg font-bold text-gray-900 mb-3">
+                                5. What have you tried?
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q5" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Nothing yet / Just noticed</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q5" value="4" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Internal admin looking at it</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q5" value="3" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Contacted Salesforce Support</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q5" value="1" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">External consultant engaged</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="showResults()" class="w-full py-4 bg-rescue-red text-white text-xl font-bold rounded-lg hover:bg-rescue-dark transition-colors shadow-lg">
+                            See My Emergency Score
+                        </button>
+                    </form>
+
+                    <!-- Results (hidden initially) -->
+                    <div id="quizResults" class="hidden">
+                        <div id="resultContent" class="text-center"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Calendly Widget Section -->
+        <section id="assessment" class="py-20 bg-white">
+            <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl font-extrabold text-gray-900 mb-4">Schedule Your Emergency Assessment</h2>
+                    <p class="text-xl text-gray-600">
+                        Get expert help right away. Book a time that works for you.
+                    </p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-2xl border-4 border-rescue-red p-8">
+                    <!-- Calendly Widget -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/your-calendly-link?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        let currentScore = 0;
+        
+        function updateScore() {
+            const form = document.getElementById('emergencyQuiz');
+            const formData = new FormData(form);
+            let total = 0;
+            
+            for (let value of formData.values()) {
+                total += parseInt(value);
+            }
+            
+            currentScore = total;
+            const percentage = (total / 50) * 100; // Max score is 50
+            
+            document.getElementById('scoreDisplay').textContent = total + '/100';
+            document.getElementById('severityMeter').style.width = Math.min(percentage * 2, 100) + '%';
+            
+            // Update label
+            let label = 'Low Risk';
+            if (total > 70) label = 'CRITICAL ⚠️';
+            else if (total > 50) label = 'HIGH RISK';
+            else if (total > 30) label = 'ELEVATED';
+            
+            document.getElementById('severityLabel').textContent = label;
+        }
+        
+        function showResults() {
+            const form = document.getElementById('emergencyQuiz');
+            const formData = new FormData(form);
+            
+            // Check if all questions answered
+            if (formData.getAll('q1').length === 0 || 
+                formData.getAll('q2').length === 0 || 
+                formData.getAll('q3').length === 0 || 
+                formData.getAll('q4').length === 0 || 
+                formData.getAll('q5').length === 0) {
+                alert('Please answer all questions before seeing your results.');
+                return;
+            }
+            
+            const score = currentScore;
+            const resultDiv = document.getElementById('resultContent');
+            const quizForm = document.getElementById('emergencyQuiz');
+            const resultsSection = document.getElementById('quizResults');
+            
+            quizForm.classList.add('hidden');
+            resultsSection.classList.remove('hidden');
+            
+            let resultHTML = '';
+            
+            if (score <= 30) {
+                resultHTML = `
+                    <div class="bg-green-50 border-4 border-green-500 rounded-2xl p-8">
+                        <div class="text-6xl mb-4">✅</div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">You're Okay (For Now)</h3>
+                        <p class="text-xl text-gray-700 mb-6">Your situation is manageable. Score: <strong>${score}/100</strong></p>
+                        <p class="text-gray-600 mb-8">Here's a free guide to prevent this from becoming urgent.</p>
+                        <a href="#assessment" class="inline-flex items-center px-8 py-4 bg-green-600 text-white text-lg font-bold rounded-lg hover:bg-green-700 transition-colors shadow-lg">
+                            Schedule Preventive Assessment
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                `;
+            } else if (score <= 60) {
+                resultHTML = `
+                    <div class="bg-yellow-50 border-4 border-yellow-500 rounded-2xl p-8">
+                        <div class="text-6xl mb-4">⚠️</div>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Elevated Risk - Act Fast</h3>
+                        <p class="text-xl text-gray-700 mb-6">This could escalate quickly. Score: <strong>${score}/100</strong></p>
+                        <p class="text-gray-600 mb-8">We recommend assessment within 24-48 hours.</p>
+                        <a href="#assessment" class="inline-flex items-center px-8 py-4 bg-yellow-600 text-white text-lg font-bold rounded-lg hover:bg-yellow-700 transition-colors shadow-lg">
+                            Schedule Standard Assessment
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                `;
+            } else if (score <= 85) {
+                resultHTML = `
+                    <div class="bg-red-50 border-4 border-red-600 rounded-2xl p-8">
+                        <div class="text-6xl mb-4">🚨</div>
+                        <h3 class="text-3xl font-bold text-rescue-red mb-4">RED ALERT - Emergency Response Needed</h3>
+                        <p class="text-xl text-gray-700 mb-6">Your org is in crisis. Score: <strong class="text-rescue-red">${score}/100</strong></p>
+                        <p class="text-gray-700 mb-8">Multiple revenue/compliance risks detected. Immediate action required.</p>
+                        <div class="flex flex-col gap-4 justify-center">
+                            <a href="#assessment" class="inline-flex items-center px-8 py-4 bg-rescue-red text-white text-lg font-bold rounded-lg hover:bg-rescue-dark transition-colors shadow-lg justify-center">
+                                Book Emergency Session Now
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                `;
+            } else {
+                resultHTML = `
+                    <div class="bg-gradient-to-br from-red-600 to-red-800 text-white border-4 border-red-900 rounded-2xl p-8">
+                        <div class="text-6xl mb-4">🔥</div>
+                        <h3 class="text-3xl font-bold mb-4">CRITICAL - Contact Us IMMEDIATELY</h3>
+                        <p class="text-xl mb-6">This is a P0 incident. Score: <strong>${score}/100</strong></p>
+                        <p class="text-lg mb-8">Your Salesforce org is at severe risk. We're submitting your responses to our emergency team now.</p>
+                        <a href="#assessment" class="inline-flex items-center px-8 py-4 bg-white text-rescue-red text-lg font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-2xl">
+                            Schedule Emergency Session NOW
+                            <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </a>
+                    </div>
+                `;
+            }
+            
+            resultHTML += `
+                <div class="mt-8 p-6 bg-gray-50 rounded-lg">
+                    <p class="text-sm text-gray-600 mb-4"><strong>Share your result:</strong></p>
+                    <div class="flex gap-3 justify-center">
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/></svg>
+                            Share on LinkedIn
+                        </a>
+                        <button onclick="location.reload()" class="inline-flex items-center px-4 py-2 bg-gray-600 text-white text-sm font-semibold rounded-lg hover:bg-gray-700 transition-colors">
+                            <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                            Retake Assessment
+                        </button>
+                    </div>
+                </div>
+            `;
+            
+            resultDiv.innerHTML = resultHTML;
+            
+            // Scroll to results
+            resultsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-bold mb-4">Salesforce Rescue</h3>
+                    <p class="text-gray-400 text-sm">Emergency Salesforce support when you need it most.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm">Home</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-white text-sm">Team</a></li>
+                        <li><a href="first-responder.html" class="text-gray-400 hover:text-white text-sm">Join Our Network</a></li>
+                        <li><a href="assessment.html" class="text-gray-400 hover:text-white text-sm">Free Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm mb-2">hello@salesforcerescue.com</p>
+                    <p class="text-gray-400 text-sm">Emergency response available</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-center text-gray-400 text-sm">&copy; 2025 Salesforce Rescue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emergency Salesforce rescue services for data loss, automation failures, deployment breakdowns, and integration outages. Senior-level response when your Salesforce org is at risk.">
+    <title>Salesforce Rescue | Emergency Salesforce Support & Recovery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rescue-red': '#dc2626',
+                        'rescue-dark': '#991b1b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 20px rgba(220, 38, 38, 0.5); }
+            50% { box-shadow: 0 0 40px rgba(220, 38, 38, 0.8); }
+        }
+        
+        .pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes slide-up {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animate-slide-up {
+            animation: slide-up 0.6s ease-out forwards;
+        }
+        
+        .stagger-1 { animation-delay: 0.1s; opacity: 0; }
+        .stagger-2 { animation-delay: 0.2s; opacity: 0; }
+        .stagger-3 { animation-delay: 0.3s; opacity: 0; }
+        .stagger-4 { animation-delay: 0.4s; opacity: 0; }
+        .stagger-5 { animation-delay: 0.5s; opacity: 0; }
+        
+        .hover-lift {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .hover-lift:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .stats-card {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .stats-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .stats-card:hover::before {
+            left: 100%;
+        }
+        
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .carousel-slide {
+            min-width: 100%;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 768px) {
+            .carousel-slide {
+                min-width: 50%;
+            }
+        }
+        
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(220, 38, 38, 0.9);
+            color: white;
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            transition: all 0.3s;
+        }
+        
+        .carousel-button:hover {
+            background: rgba(153, 27, 27, 1);
+            transform: translateY(-50%) scale(1.1);
+        }
+        
+        .carousel-button-prev {
+            left: -20px;
+        }
+        
+        .carousel-button-next {
+            right: -20px;
+        }
+        
+        .carousel-dots {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 2rem;
+        }
+        
+        .carousel-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #d1d5db;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .carousel-dot.active {
+            background: #dc2626;
+            width: 24px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body class="antialiased bg-white">
+    <!-- Emergency Banner -->
+    <div class="bg-rescue-red text-white py-3">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-center text-center">
+                <svg class="w-5 h-5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                </svg>
+                <span class="font-semibold text-sm sm:text-base">🚨 Emergency Salesforce Support Available • Same-Day Assessment Calls</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <h1 class="text-2xl font-bold text-rescue-red tracking-tight">Salesforce Rescue</h1>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="team.html" class="text-gray-700 hover:text-rescue-red font-medium transition-colors">Team</a>
+                    <a href="first-responder.html" class="text-gray-700 hover:text-rescue-red font-medium transition-colors">Join Us</a>
+                    <a href="assessment.html" class="inline-flex items-center px-4 py-2 bg-rescue-red text-white text-sm font-semibold rounded-lg hover:bg-rescue-dark transition-colors">
+                        Free Assessment
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="relative bg-gradient-to-b from-gray-50 to-white py-16 sm:py-24">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center px-4 py-2 bg-red-50 border border-red-200 rounded-full mb-6">
+                        <span class="relative flex h-3 w-3 mr-2">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rescue-red opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-rescue-red"></span>
+                        </span>
+                        <span class="text-sm font-medium text-red-900">Is Your Salesforce Organization in Crisis?</span>
+                    </div>
+                    
+                    <!-- New Headline per Bob's feedback -->
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 tracking-tight mb-4">
+                        When Salesforce Breaks...<br>
+                        <span class="text-rescue-red" style="text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: 8px;">We Fix It Fast</span>
+                    </h1>
+                    
+                    <!-- Sub-headline per Bob's feedback -->
+                    <p class="text-xl sm:text-2xl text-gray-500 font-light max-w-4xl mx-auto mb-10">
+                        In many cases, we fix Salesforce problems faster than traditional support — from 90 minutes to a few weeks, depending on the issue.
+                    </p>
+                </div>
+
+                <!-- CTAs Above the Fold -->
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-10">
+                    <a href="assessment.html" class="pulse-glow inline-flex items-center px-10 py-5 bg-rescue-red text-white text-xl font-bold rounded-lg hover:bg-rescue-dark transform hover:scale-105 transition-all shadow-2xl">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        Take Free Emergency Assessment
+                    </a>
+                </div>
+                
+                <!-- Real Emergency Scenarios Carousel in Hero -->
+                <div class="max-w-6xl mx-auto mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 text-center mb-6">Real Emergency Scenarios We've Solved</h3>
+                    <div class="carousel-container relative">
+                        <button class="carousel-button carousel-button-prev" onclick="moveCarousel(-1)" aria-label="Previous">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                            </svg>
+                        </button>
+                        
+                        <div class="carousel-track" id="carouselTrack">
+                            <!-- Show 3 key scenarios in hero -->
+                            <div class="carousel-slide">
+                                <div class="bg-white border-2 border-gray-200 rounded-xl p-6 h-full shadow-lg">
+                                    <div class="flex items-start mb-4">
+                                        <div class="w-10 h-10 bg-rescue-red rounded-full flex items-center justify-center flex-shrink-0">
+                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3">
+                                            <div class="text-xs font-semibold text-gray-500 uppercase mb-1">Manufacturing • 1,200 Users</div>
+                                            <h4 class="text-lg font-bold text-gray-900">Flow Loop Production Outage</h4>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mb-3">Infinite loop triggering CPU errors. Entire sales org paralyzed.</p>
+                                    <div class="bg-green-50 border-l-4 border-green-500 p-3">
+                                        <p class="text-sm font-semibold text-green-900">Resolved in 90 minutes</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-slide">
+                                <div class="bg-white border-2 border-gray-200 rounded-xl p-6 h-full shadow-lg">
+                                    <div class="flex items-start mb-4">
+                                        <div class="w-10 h-10 bg-rescue-red rounded-full flex items-center justify-center flex-shrink-0">
+                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3">
+                                            <div class="text-xs font-semibold text-gray-500 uppercase mb-1">SaaS Company • 450 Users</div>
+                                            <h4 class="text-lg font-bold text-gray-900">Quarter-End Deployment Disaster</h4>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mb-3">Friday deployment broke quote-to-cash. Revenue at risk.</p>
+                                    <div class="bg-green-50 border-l-4 border-green-500 p-3">
+                                        <p class="text-sm font-semibold text-green-900">Resolved in 3 hours</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-slide">
+                                <div class="bg-white border-2 border-gray-200 rounded-xl p-6 h-full shadow-lg">
+                                    <div class="flex items-start mb-4">
+                                        <div class="w-10 h-10 bg-rescue-red rounded-full flex items-center justify-center flex-shrink-0">
+                                            <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                        <div class="ml-3">
+                                            <div class="text-xs font-semibold text-gray-500 uppercase mb-1">Healthcare • 300 Users</div>
+                                            <h4 class="text-lg font-bold text-gray-900">HIPAA Compliance Breach</h4>
+                                        </div>
+                                    </div>
+                                    <p class="text-sm text-gray-700 mb-3">Permission error exposed PHI data. Immediate violation risk.</p>
+                                    <div class="bg-green-50 border-l-4 border-green-500 p-3">
+                                        <p class="text-sm font-semibold text-green-900">Resolved in 4 hours</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <button class="carousel-button carousel-button-next" onclick="moveCarousel(1)" aria-label="Next">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="carousel-dots" id="carouselDots"></div>
+                </div>
+                
+                <!-- Proof Elements Below CTAs per Bob's feedback -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                    <div class="stats-card bg-gradient-to-br from-red-50 to-white border-2 border-red-200 rounded-xl p-6 text-center hover-lift">
+                        <div class="text-4xl font-black text-rescue-red mb-2">< 2hrs</div>
+                        <div class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Average Response Time</div>
+                    </div>
+                    <div class="stats-card bg-gradient-to-br from-red-50 to-white border-2 border-red-200 rounded-xl p-6 text-center hover-lift">
+                        <div class="text-4xl font-black text-rescue-red mb-2">15+</div>
+                        <div class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Years Experience</div>
+                    </div>
+                    <div class="stats-card bg-gradient-to-br from-red-50 to-white border-2 border-red-200 rounded-xl p-6 text-center hover-lift">
+                        <div class="text-4xl font-black text-rescue-red mb-2">Multiple</div>
+                        <div class="text-sm font-semibold text-gray-700 uppercase tracking-wide">Salesforce Certifications</div>
+                    </div>
+                </div>
+                
+                <!-- Additional Credibility -->
+                <div class="text-center">
+                    <p class="text-sm text-gray-500 mb-4">Certified Salesforce Technical Architect • Principal-level expertise • Emergency response specialist</p>
+                    <div class="flex justify-center items-center gap-4 flex-wrap">
+                        <div class="px-4 py-2 bg-blue-50 border border-blue-200 rounded-lg text-sm font-semibold text-blue-900">
+                            🏆 Salesforce Certified
+                        </div>
+                        <div class="px-4 py-2 bg-green-50 border border-green-200 rounded-lg text-sm font-semibold text-green-900">
+                            ⚡ Same-Day Available
+                        </div>
+                        <div class="px-4 py-2 bg-purple-50 border border-purple-200 rounded-lg text-sm font-semibold text-purple-900">
+                            🎯 Emergency Specialist
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Hidden Cost of Waiting -->
+        <section class="py-16 sm:py-20 bg-white border-t border-gray-100">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">The Hidden Cost of Waiting</h2>
+                    <p class="text-xl text-gray-700 mb-6">Many Salesforce catastrophes get worse because teams hesitate.</p>
+                    <div class="max-w-3xl mx-auto bg-yellow-50 border-l-4 border-yellow-400 p-6 rounded-r-lg">
+                        <p class="text-lg font-semibold text-gray-900 mb-2">
+                            Whether you know your exact problem or not, we can diagnose and fix it.
+                        </p>
+                        <p class="text-gray-700">
+                            Most people spend time trying to solve problems they haven't properly diagnosed. We help you identify the root cause so it can be solved once and for all.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8 mb-10">
+                    <div class="bg-gray-50 rounded-lg p-6 border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                            <svg class="w-6 h-6 text-yellow-500 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                            </svg>
+                            They wait for:
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start text-gray-700">
+                                <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                A Salesforce Support response
+                            </li>
+                            <li class="flex items-start text-gray-700">
+                                <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                An SI escalation
+                            </li>
+                            <li class="flex items-start text-gray-700">
+                                <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                An internal admin to "take another look"
+                            </li>
+                            <li class="flex items-start text-gray-700">
+                                <svg class="w-5 h-5 text-gray-400 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clip-rule="evenodd"/>
+                                </svg>
+                                A deployment window that never quite comes
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-red-50 rounded-lg p-6 border border-red-200">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4 flex items-center">
+                            <svg class="w-6 h-6 text-rescue-red mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            During that waiting period:
+                        </h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start text-gray-800">
+                                <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Bad data spreads
+                            </li>
+                            <li class="flex items-start text-gray-800">
+                                <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Automation continues to misfire
+                            </li>
+                            <li class="flex items-start text-gray-800">
+                                <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Integrations retry and duplicate
+                            </li>
+                            <li class="flex items-start text-gray-800">
+                                <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 015.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Users work around the system
+                            </li>
+                            <li class="flex items-start text-gray-800">
+                                <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M13.477 14.89A6 6 0 15.11 6.524l8.367 8.368zm1.414-1.414L6.524 5.11a6 6 0 018.367 8.367zM18 10a8 8 0 11-16 0 8 8 0 0116 0z" clip-rule="evenodd"/>
+                                </svg>
+                                Trust erodes quietly
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="text-center mt-10">
+                    <p class="text-xl font-semibold text-gray-900 mb-6">
+                        We fix problems in a fraction of the time of traditional Salesforce support or large consulting firms.
+                    </p>
+                    <a href="#assessment" class="inline-flex items-center px-8 py-4 bg-rescue-red text-white text-lg font-bold rounded-lg hover:bg-rescue-dark transition-colors shadow-lg">
+                        Get Help Now
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- About the Assessment (Quick Intro) -->
+        <section class="py-16 sm:py-20 bg-gradient-to-br from-red-50 via-orange-50 to-yellow-50">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-8">
+                    <div class="inline-flex items-center px-4 py-2 bg-rescue-red text-white rounded-full mb-4">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="font-semibold text-sm">FREE EMERGENCY ASSESSMENT</span>
+                    </div>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4">
+                        Is Your Salesforce Org in Crisis?
+                    </h2>
+                    <p class="text-xl text-gray-700 mb-2">Take our free 60-second emergency diagnostic</p>
+                    <p class="text-sm text-gray-600">1,247 orgs assessed this month</p>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-2xl p-8 border-4 border-rescue-red text-center">
+                    <div class="text-6xl mb-6">🚨</div>
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">5 Quick Questions to Assess Your Situation</h3>
+                    <p class="text-lg text-gray-700 mb-8">Takes 60 seconds. Get your emergency severity score immediately.</p>
+
+                    <a href="assessment.html" class="inline-flex items-center px-10 py-5 bg-rescue-red text-white text-xl font-bold rounded-lg hover:bg-rescue-dark transform hover:scale-105 transition-all shadow-2xl">
+                        Take Free Emergency Assessment
+                        <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Categories Grid -->
+                            <label class="block text-lg font-bold text-gray-900 mb-3">
+                                1. What's broken?
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q1" value="10" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Users can't access Salesforce at all</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q1" value="8" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Data looks wrong/corrupted</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q1" value="7" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Specific feature/process not working</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q1" value="6" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Integration stopped working</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q1" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Performance issues/slowness</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="quiz-question">
+                            <label class="block text-lg font-bold text-gray-900 mb-3">
+                                2. How many users are impacted?
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q2" value="10" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Everyone / Company-wide</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q2" value="7" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Entire department</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q2" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Specific team</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q2" value="3" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Just a few people</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="quiz-question">
+                            <label class="block text-lg font-bold text-gray-900 mb-3">
+                                3. What's the business impact?
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q3" value="10" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Revenue/deals at risk RIGHT NOW</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q3" value="9" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Compliance/legal exposure</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q3" value="8" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Critical deadline approaching</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q3" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Operations disrupted but working around it</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q3" value="2" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Annoying but not urgent</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 4 -->
+                        <div class="quiz-question">
+                            <label class="block text-lg font-bold text-gray-900 mb-3">
+                                4. When did this start?
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q4" value="8" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Last hour</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q4" value="7" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Today</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q4" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">This week</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q4" value="3" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Ongoing for weeks/months</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Question 5 -->
+                        <div class="quiz-question">
+                            <label class="block text-lg font-bold text-gray-900 mb-3">
+                                5. What have you tried?
+                            </label>
+                            <div class="space-y-2">
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q5" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Nothing yet / Just noticed</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q5" value="4" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Internal admin looking at it</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q5" value="3" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">Contacted Salesforce Support</span>
+                                </label>
+                                <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
+                                    <input type="radio" name="q5" value="1" class="mt-1 mr-3" onchange="updateScore()">
+                                    <span class="text-gray-700">External consultant engaged</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <button type="button" onclick="showResults()" class="w-full py-4 bg-rescue-red text-white text-xl font-bold rounded-lg hover:bg-rescue-dark transition-colors shadow-lg">
+                            See My Emergency Score
+                        </button>
+                    </form>
+
+                    <!-- Results (hidden initially) -->
+                    <div id="quizResults" class="hidden">
+                        <div id="resultContent" class="text-center"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            let currentScore = 0;
+            
+            function updateScore() {
+                const form = document.getElementById('emergencyQuiz');
+                const formData = new FormData(form);
+                let total = 0;
+                
+                for (let value of formData.values()) {
+                    total += parseInt(value);
+                }
+                
+                currentScore = total;
+                const percentage = (total / 50) * 100; // Max score is 50
+                
+                document.getElementById('scoreDisplay').textContent = total + '/100';
+                document.getElementById('severityMeter').style.width = Math.min(percentage * 2, 100) + '%';
+                
+                // Update label
+                let label = 'Low Risk';
+                if (total > 70) label = 'CRITICAL ⚠️';
+                else if (total > 50) label = 'HIGH RISK';
+                else if (total > 30) label = 'ELEVATED';
+                
+                document.getElementById('severityLabel').textContent = label;
+            }
+            
+            function showResults() {
+                const form = document.getElementById('emergencyQuiz');
+                const formData = new FormData(form);
+                
+                // Check if all questions answered
+                if (formData.getAll('q1').length === 0 || 
+                    formData.getAll('q2').length === 0 || 
+                    formData.getAll('q3').length === 0 || 
+                    formData.getAll('q4').length === 0 || 
+                    formData.getAll('q5').length === 0) {
+                    alert('Please answer all questions before seeing your results.');
+                    return;
+                }
+                
+                const score = currentScore;
+                const resultDiv = document.getElementById('resultContent');
+                const quizForm = document.getElementById('emergencyQuiz');
+                const resultsSection = document.getElementById('quizResults');
+                
+                quizForm.classList.add('hidden');
+                resultsSection.classList.remove('hidden');
+                
+                let resultHTML = '';
+                
+                if (score <= 30) {
+                    resultHTML = `
+                        <div class="bg-green-50 border-4 border-green-500 rounded-2xl p-8">
+                            <div class="text-6xl mb-4">✅</div>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-4">You're Okay (For Now)</h3>
+                            <p class="text-xl text-gray-700 mb-6">Your situation is manageable. Score: <strong>${score}/100</strong></p>
+                            <p class="text-gray-600 mb-8">Here's a free guide to prevent this from becoming urgent.</p>
+                            <a href="#" class="inline-flex items-center px-8 py-4 bg-green-600 text-white text-lg font-bold rounded-lg hover:bg-green-700 transition-colors shadow-lg">
+                                Download Prevention Checklist
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
+                                </svg>
+                            </a>
+                        </div>
+                    `;
+                } else if (score <= 60) {
+                    resultHTML = `
+                        <div class="bg-yellow-50 border-4 border-yellow-500 rounded-2xl p-8">
+                            <div class="text-6xl mb-4">⚠️</div>
+                            <h3 class="text-3xl font-bold text-gray-900 mb-4">Elevated Risk - Act Fast</h3>
+                            <p class="text-xl text-gray-700 mb-6">This could escalate quickly. Score: <strong>${score}/100</strong></p>
+                            <p class="text-gray-600 mb-8">We recommend assessment within 24-48 hours.</p>
+                            <a href="#assessment" class="inline-flex items-center px-8 py-4 bg-yellow-600 text-white text-lg font-bold rounded-lg hover:bg-yellow-700 transition-colors shadow-lg">
+                                Schedule Standard Assessment
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                </svg>
+                            </a>
+                        </div>
+                    `;
+                } else if (score <= 85) {
+                    resultHTML = `
+                        <div class="bg-red-50 border-4 border-red-600 rounded-2xl p-8">
+                            <div class="text-6xl mb-4">🚨</div>
+                            <h3 class="text-3xl font-bold text-rescue-red mb-4">RED ALERT - Emergency Response Needed</h3>
+                            <p class="text-xl text-gray-700 mb-6">Your org is in crisis. Score: <strong class="text-rescue-red">${score}/100</strong></p>
+                            <p class="text-gray-700 mb-8">Multiple revenue/compliance risks detected. Immediate action required.</p>
+                            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                                <a href="tel:+15555551234" class="inline-flex items-center px-8 py-4 bg-rescue-red text-white text-lg font-bold rounded-lg hover:bg-rescue-dark transition-colors shadow-lg">
+                                    <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+                                    </svg>
+                                    Call Now: (555) 555-1234
+                                </a>
+                                <a href="#assessment" class="inline-flex items-center px-8 py-4 bg-white text-rescue-red text-lg font-bold rounded-lg hover:bg-gray-50 transition-colors shadow-lg border-2 border-rescue-red">
+                                    Book Emergency Session
+                                    <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </div>
+                    `;
+                } else {
+                    resultHTML = `
+                        <div class="bg-gradient-to-br from-red-600 to-red-800 text-white border-4 border-red-900 rounded-2xl p-8 animate-pulse">
+                            <div class="text-6xl mb-4">🔥</div>
+                            <h3 class="text-3xl font-bold mb-4">CRITICAL - Contact Us IMMEDIATELY</h3>
+                            <p class="text-xl mb-6">This is a P0 incident. Score: <strong>${score}/100</strong></p>
+                            <p class="text-lg mb-8">Your Salesforce org is at severe risk. We're submitting your responses to our emergency team now.</p>
+                            <div class="bg-white text-gray-900 rounded-xl p-6 mb-6">
+                                <p class="text-4xl font-black mb-2">(555) 555-1234</p>
+                                <p class="text-sm">Emergency Hotline - Available 24/7</p>
+                            </div>
+                            <a href="#assessment" class="inline-flex items-center px-8 py-4 bg-white text-rescue-red text-lg font-bold rounded-lg hover:bg-gray-100 transition-colors shadow-2xl">
+                                Schedule Emergency Session
+                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    `;
+                }
+                
+                resultHTML += `
+                    <div class="mt-8 p-6 bg-gray-50 rounded-lg">
+                        <p class="text-sm text-gray-600 mb-4"><strong>Share your result:</strong></p>
+                        <div class="flex gap-3 justify-center">
+                            <a href="https://www.linkedin.com/sharing/share-offsite/?url=" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+                                <svg class="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20"><path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/></svg>
+                                Share on LinkedIn
+                            </a>
+                            <button onclick="location.reload()" class="inline-flex items-center px-4 py-2 bg-gray-600 text-white text-sm font-semibold rounded-lg hover:bg-gray-700 transition-colors">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/></svg>
+                                Retake Assessment
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                resultDiv.innerHTML = resultHTML;
+                
+                // Scroll to results
+                resultsSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        </script>
+
+        <!-- Emergency Categories Grid -->
+        <section class="py-16 sm:py-20 bg-gradient-to-b from-white to-gray-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-4">
+                        <span class="gradient-text">Emergency Response</span> Categories
+                    </h2>
+                    <p class="text-xl text-gray-600 max-w-3xl mx-auto">Senior-level expertise across every critical Salesforce failure scenario</p>
+                </div>
+
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Data Loss Card -->
+                    <div class="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-8 hover-lift">
+                        <div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-rescue-red" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Data Loss & Corruption</h3>
+                        <p class="text-gray-600 mb-4">Mass deletes, faulty imports, duplicate explosions, and orphaned records breaking your org.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Containment-first approach
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Surgical recovery
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-rescue-red mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Prevent future occurrences
+                            </li>
+                        </ul>
+                        <a href="#assessment" class="inline-flex items-center text-rescue-red font-semibold hover:text-rescue-dark transition-colors">
+                            Get Data Recovery Help
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Automation Card -->
+                    <div class="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-8 hover-lift">
+                        <div class="w-16 h-16 bg-orange-100 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-orange-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Automation & Flow Failures</h3>
+                        <p class="text-gray-600 mb-4">Infinite loops, CPU limits, trigger chaos, and validation rules blocking critical operations.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-orange-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Stop the bleeding safely
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-orange-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Root cause analysis
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-orange-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Stabilize without testing in prod
+                            </li>
+                        </ul>
+                        <a href="#assessment" class="inline-flex items-center text-orange-600 font-semibold hover:text-orange-700 transition-colors">
+                            Fix Automation Issues
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Deployment Card -->
+                    <div class="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-8 hover-lift">
+                        <div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Deployment Failures</h3>
+                        <p class="text-gray-600 mb-4">Failed releases, blocked hotfixes, broken permissions, and CI/CD pipeline disasters.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-purple-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Senior judgment, not trial & error
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-purple-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Emergency deployment support
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-purple-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Dependency resolution
+                            </li>
+                        </ul>
+                        <a href="#assessment" class="inline-flex items-center text-purple-600 font-semibold hover:text-purple-700 transition-colors">
+                            Emergency Deployment Help
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Integration Card -->
+                    <div class="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-8 hover-lift">
+                        <div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Integration Outages</h3>
+                        <p class="text-gray-600 mb-4">ERP sync failures, API limit exhaustion, token issues, and partial syncs corrupting data.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Find where truth breaks
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Stop data corruption spread
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-blue-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Restore system confidence
+                            </li>
+                        </ul>
+                        <a href="#assessment" class="inline-flex items-center text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                            Fix Integration Crisis
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Security Card -->
+                    <div class="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-8 hover-lift">
+                        <div class="w-16 h-16 bg-yellow-100 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-yellow-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Security & Compliance</h3>
+                        <p class="text-gray-600 mb-4">Permission breaches, access issues, compliance audit panic, and regulatory exposure risks.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-yellow-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Immediate access lockdown
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-yellow-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Minimal-change intervention
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-yellow-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Compliance documentation
+                            </li>
+                        </ul>
+                        <a href="#assessment" class="inline-flex items-center text-yellow-600 font-semibold hover:text-yellow-700 transition-colors">
+                            Secure Your Org Now
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <!-- Knowledge Loss Card -->
+                    <div class="bg-white rounded-2xl shadow-lg border-2 border-gray-100 p-8 hover-lift">
+                        <div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+                            <svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">Knowledge Loss</h3>
+                        <p class="text-gray-600 mb-4">Admin departed, tribal knowledge gone, undocumented customizations, and no one knows how it works.</p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Reverse engineer your org
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Document critical logic
+                            </li>
+                            <li class="flex items-start text-sm text-gray-700">
+                                <svg class="w-4 h-4 text-green-600 mt-0.5 mr-2 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                Establish operational control
+                            </li>
+                        </ul>
+                        <a href="#assessment" class="inline-flex items-center text-green-600 font-semibold hover:text-green-700 transition-colors">
+                            Recover Lost Knowledge
+                            <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Original detailed sections kept for SEO but visually de-emphasized -->
+        <section class="py-16 sm:py-20 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <details class="group">
+                    <summary class="cursor-pointer list-none">
+                        <div class="flex items-center justify-between p-6 bg-gray-50 rounded-lg border border-gray-200 hover:border-gray-300 transition-colors">
+                            <h2 class="text-2xl font-bold text-gray-900">Data Loss: Technical Deep Dive</h2>
+                            <svg class="w-6 h-6 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                            </svg>
+                        </div>
+                    </summary>
+                    <div class="mt-4 p-6 bg-white rounded-lg border border-gray-200">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Data Loss, Corruption, and Integrity Failures</h3>
+                
+                        <p class="text-gray-700 mb-4">Few Salesforce events create panic faster than data problems.</p>
+
+                        <h4 class="text-lg font-bold text-gray-900 mb-3">Common triggers include:</h4>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Accidental mass deletes
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Faulty Data Loader imports
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Incorrect field mapping
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Duplicate record explosions
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Sandbox refreshes overwriting production assumptions
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Partial restores with unclear gaps
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Orphaned records breaking reporting
+                    </li>
+                </ul>
+
+                        <p class="text-gray-700 mb-4">Data issues often coexist with automation and integration failures, which makes them especially dangerous.</p>
+
+                        <div class="bg-yellow-50 border-l-4 border-yellow-400 p-4">
+                            <p class="text-sm font-semibold text-gray-900">Salesforce Rescue focuses on containment first — then clarity.</p>
+                        </div>
+                    </div>
+                </details>
+            </div>
+        </section>
+
+        <!-- Scenario Carousel Section -->
+        <section class="py-16 sm:py-20 bg-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">Real Emergency Scenarios</h2>
+                    <p class="text-xl text-gray-600">When production breaks, every minute costs money and trust</p>
+                </div>
+
+                <div class="carousel-container relative max-w-6xl mx-auto">
+                    <button class="carousel-button carousel-button-prev" onclick="moveCarousel(-1)" aria-label="Previous">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                        </svg>
+                    </button>
+                    
+                    <div class="carousel-track" id="carouselTrack">
+                        <!-- Scenario 1 -->
+                        <div class="carousel-slide">
+                            <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 h-full">
+                                <div class="flex items-start mb-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-rescue-red rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">SaaS Company • 450 Users</div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3">Quarter-End Deployment Disaster</h3>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 mb-4">
+                                    <p class="mb-3"><strong>Scenario:</strong> Friday afternoon deployment broke entire quote-to-cash process during final week of quarter. Sales team unable to generate quotes or close deals. Revenue at risk.</p>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                                    <p class="text-sm font-semibold text-green-900 mb-1">Resolution: 3 hours</p>
+                                    <p class="text-sm text-green-800">Emergency rollback + surgical fix deployed Saturday morning. Quarter closed successfully with zero revenue impact.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 2 -->
+                        <div class="carousel-slide">
+                            <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 h-full">
+                                <div class="flex items-start mb-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-rescue-red rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Enterprise Software • 3,500 Users</div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3">Decade of Technical Debt</h3>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 mb-4">
+                                    <p class="mb-3"><strong>Scenario:</strong> Global org accumulated 10 years of undocumented customizations across multiple business units. New CRO demanded unified reporting. Existing SI couldn't deliver timeline or cost estimate.</p>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                                    <p class="text-sm font-semibold text-green-900 mb-1">Resolution: 4 weeks</p>
+                                    <p class="text-sm text-green-800">Complete architecture documentation, consolidated data model, executive-ready reporting infrastructure deployed.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 3 -->
+                        <div class="carousel-slide">
+                            <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 h-full">
+                                <div class="flex items-start mb-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-rescue-red rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">FinTech Startup • 80 Users</div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3">Series B Due Diligence Crisis</h3>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 mb-4">
+                                    <p class="mb-3"><strong>Scenario:</strong> Only Salesforce admin departed during Series B due diligence. Zero documentation. Investors demanding detailed data governance and system architecture answers. Funding timeline at risk.</p>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                                    <p class="text-sm font-semibold text-green-900 mb-1">Resolution: 1 week</p>
+                                    <p class="text-sm text-green-800">Complete org reverse-engineering, data lineage documentation, investor-ready technical deck delivered.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 4 -->
+                        <div class="carousel-slide">
+                            <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 h-full">
+                                <div class="flex items-start mb-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-rescue-red rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Manufacturing • 1,200 Users</div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3">Flow Loop Production Outage</h3>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 mb-4">
+                                    <p class="mb-3"><strong>Scenario:</strong> Recently deployed Flow created infinite loop triggering CPU limit errors across org. Users couldn't load records. Entire sales organization paralyzed. SI response time: 6+ hours.</p>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                                    <p class="text-sm font-semibold text-green-900 mb-1">Resolution: 90 minutes</p>
+                                    <p class="text-sm text-green-800">Root cause identified, emergency deactivation deployed, normal operations restored same day.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 5 -->
+                        <div class="carousel-slide">
+                            <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 h-full">
+                                <div class="flex items-start mb-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-rescue-red rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Healthcare Provider • 300 Users</div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3">HIPAA Compliance Breach</h3>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 mb-4">
+                                    <p class="mb-3"><strong>Scenario:</strong> Post-deployment permission error exposed PHI data to unauthorized junior reps. Immediate HIPAA violation risk. Legal demanding incident timeline and remediation proof.</p>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                                    <p class="text-sm font-semibold text-green-900 mb-1">Resolution: 4 hours</p>
+                                    <p class="text-sm text-green-800">Emergency access lockdown, complete audit trail, compliance documentation for legal team.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 6 -->
+                        <div class="carousel-slide">
+                            <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 h-full">
+                                <div class="flex items-start mb-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-rescue-red rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">B2B SaaS • 850 Users</div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3">ERP Integration Meltdown</h3>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 mb-4">
+                                    <p class="mb-3"><strong>Scenario:</strong> NetSuite integration creating duplicate accounts and opportunities. Data integrity compromised. Sales and finance reporting completely unreliable. Middleware vendor pointing fingers at Salesforce config.</p>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                                    <p class="text-sm font-semibold text-green-900 mb-1">Resolution: 2 days</p>
+                                    <p class="text-sm text-green-800">Root cause analysis, data deduplication script, integration fix deployed, monitoring established.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 7 -->
+                        <div class="carousel-slide">
+                            <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 h-full">
+                                <div class="flex items-start mb-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-rescue-red rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Financial Services • 5,000 Users</div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3">Merger Org Consolidation</h3>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 mb-4">
+                                    <p class="mb-3"><strong>Scenario:</strong> Post-acquisition need to merge two Salesforce orgs with conflicting data models, different CPQ implementations, and incompatible reporting structures. Deadline: 90 days. Existing consultants withdrew bid.</p>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                                    <p class="text-sm font-semibold text-green-900 mb-1">Resolution: 3 weeks</p>
+                                    <p class="text-sm text-green-800">Architecture assessment, migration strategy, phased consolidation plan with risk mitigation delivered ahead of deadline.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 8 -->
+                        <div class="carousel-slide">
+                            <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 h-full">
+                                <div class="flex items-start mb-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-rescue-red rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Retail Chain • 2,000 Users</div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3">Accidental Mass Delete</h3>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 mb-4">
+                                    <p class="mb-3"><strong>Scenario:</strong> Data Loader mishap deleted 18 months of customer service cases. Historical data critical for ongoing litigation. Backup restore would take 48+ hours and risk additional data loss. Legal escalating.</p>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                                    <p class="text-sm font-semibold text-green-900 mb-1">Resolution: 6 hours</p>
+                                    <p class="text-sm text-green-800">Surgical data recovery from Recycle Bin, bulk API restore, data validation, zero business disruption.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 9 -->
+                        <div class="carousel-slide">
+                            <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 h-full">
+                                <div class="flex items-start mb-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-rescue-red rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Media Company • 600 Users</div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3">API Limit Death Spiral</h3>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 mb-4">
+                                    <p class="mb-3"><strong>Scenario:</strong> Marketing automation platform exhausting API limits daily. Salesforce becoming unusable during business hours. Vendor blaming Salesforce configuration. Internal team out of ideas.</p>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                                    <p class="text-sm font-semibold text-green-900 mb-1">Resolution: 5 hours</p>
+                                    <p class="text-sm text-green-800">API call audit, inefficient integration patterns identified, optimization deployed, monitoring dashboard created.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Scenario 10 -->
+                        <div class="carousel-slide">
+                            <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-2xl p-8 h-full">
+                                <div class="flex items-start mb-6">
+                                    <div class="flex-shrink-0">
+                                        <div class="w-12 h-12 bg-rescue-red rounded-full flex items-center justify-center">
+                                            <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
+                                                <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"/>
+                                            </svg>
+                                        </div>
+                                    </div>
+                                    <div class="ml-4">
+                                        <div class="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">Professional Services • 1,800 Users</div>
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3">CPQ Pricing Engine Failure</h3>
+                                    </div>
+                                </div>
+                                <div class="text-gray-700 mb-4">
+                                    <p class="mb-3"><strong>Scenario:</strong> Custom CPQ pricing rules producing incorrect quotes. Major client discovered error mid-negotiation. Revenue recognition at risk. Original developer no longer available. Code uncommented and undocumented.</p>
+                                </div>
+                                <div class="bg-green-50 border-l-4 border-green-500 p-4">
+                                    <p class="text-sm font-semibold text-green-900 mb-1">Resolution: 2 weeks</p>
+                                    <p class="text-sm text-green-800">Code reverse-engineering, logic documentation, pricing engine rebuild with test coverage, client relationship salvaged.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="carousel-button carousel-button-next" onclick="moveCarousel(1)" aria-label="Next">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div class="carousel-dots" id="carouselDots"></div>
+
+                <div class="text-center mt-12">
+                    <a href="#assessment" class="pulse-glow inline-flex items-center px-8 py-4 bg-rescue-red text-white text-lg font-bold rounded-lg hover:bg-rescue-dark transform hover:scale-105 transition-all shadow-lg">
+                        Get This Level of Response
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            let currentSlide = 0;
+            const track = document.getElementById('carouselTrack');
+            const slides = document.querySelectorAll('.carousel-slide');
+            const dotsContainer = document.getElementById('carouselDots');
+            const slidesPerView = window.innerWidth >= 768 ? 2 : 1;
+            const totalSlides = slides.length;
+            const maxSlide = Math.ceil(totalSlides / slidesPerView) - 1;
+
+            // Create dots
+            for (let i = 0; i <= maxSlide; i++) {
+                const dot = document.createElement('div');
+                dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+                dot.onclick = () => goToSlide(i);
+                dotsContainer.appendChild(dot);
+            }
+
+            function updateCarousel() {
+                const slideWidth = 100 / slidesPerView;
+                track.style.transform = `translateX(-${currentSlide * slideWidth}%)`;
+                
+                // Update dots
+                document.querySelectorAll('.carousel-dot').forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentSlide);
+                });
+            }
+
+            function moveCarousel(direction) {
+                currentSlide += direction;
+                if (currentSlide < 0) currentSlide = maxSlide;
+                if (currentSlide > maxSlide) currentSlide = 0;
+                updateCarousel();
+            }
+
+            function goToSlide(index) {
+                currentSlide = index;
+                updateCarousel();
+            }
+
+            // Auto-play (optional)
+            setInterval(() => {
+                moveCarousel(1);
+            }, 8000);
+        </script>
+
+        <!-- Mindset Section -->
+        <section class="py-16 sm:py-20 bg-gradient-to-b from-gray-50 to-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">Why "We'll Be Careful" Isn't a Plan</h2>
+                
+                <p class="text-xl text-gray-700 mb-4">During emergencies, teams often freeze — afraid to make things worse.</p>
+
+                <p class="text-xl text-gray-700 mb-6">That fear is rational.</p>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">Uncoordinated fixes often:</h3>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Compound data damage
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Mask root causes
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Break integrations
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        Create future incidents
+                    </li>
+                </ul>
+
+                <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+                    <p class="text-lg font-semibold text-gray-900">Salesforce Rescue exists to bring controlled intervention when caution alone isn't enough.</p>
+                </div>
+
+                <div class="text-center">
+                    <a href="#assessment" class="inline-flex items-center px-6 py-3 bg-rescue-red text-white text-base font-semibold rounded-lg hover:bg-rescue-dark transition-colors shadow-md">
+                        Bring in a Senior Salesforce Architect
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Assessment Call Section -->
+        <section class="py-16 sm:py-20 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">How the Assessment Call Actually Helps</h2>
+                
+                <p class="text-xl text-gray-700 mb-6">The assessment is not a sales pitch.</p>
+
+                <h3 class="text-2xl font-bold text-gray-900 mb-4">It's a working session designed to:</h3>
+                <ul class="space-y-3 mb-8">
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Establish what is truly broken
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Separate symptoms from causes
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Identify immediate containment steps
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Clarify risks of action vs inaction
+                    </li>
+                    <li class="flex items-start text-gray-700">
+                        <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                        </svg>
+                        Decide whether rescue engagement makes sense
+                    </li>
+                </ul>
+
+                <div class="bg-blue-50 border-l-4 border-blue-400 p-6 mb-8">
+                    <p class="text-lg font-semibold text-gray-900">Many clients describe this as the moment "the fog lifts."</p>
+                </div>
+
+                <div class="text-center">
+                    <a href="#assessment" class="inline-flex items-center px-6 py-3 bg-rescue-red text-white text-base font-semibold rounded-lg hover:bg-rescue-dark transition-colors shadow-md">
+                        Book an Assessment Call
+                        <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Scheduling Section -->
+        <section id="assessment" class="py-16 sm:py-20 bg-gray-50">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl sm:text-4xl font-bold text-gray-900 mb-6 text-center">Schedule Your Assessment Call</h2>
+                
+                <p class="text-xl text-gray-700 mb-8 text-center">Assessment calls are scheduled via Calendly to remove friction and delay.</p>
+
+                <div class="bg-white rounded-lg shadow-md p-8 mb-8">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">You'll be able to:</h3>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Choose the earliest available time
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Indicate urgency level
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Request same-day priority if available
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-green-500 mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                            </svg>
+                            Share context before the call
+                        </li>
+                    </ul>
+
+                    <div class="bg-yellow-50 border border-yellow-200 rounded-lg p-4 mb-8">
+                        <p class="text-sm text-gray-700"><strong>Note:</strong> For severe or time-critical Salesforce emergencies, same-day assessments may be available at a priority rate.</p>
+                    </div>
+
+                    <!-- Calendly inline widget begin -->
+                    <div class="calendly-inline-widget" data-url="https://calendly.com/your-calendly-link?hide_gdpr_banner=1" style="min-width:320px;height:700px;"></div>
+                    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+                    <!-- Calendly inline widget end -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Final CTA Section -->
+        <section class="py-20 sm:py-24 bg-gradient-to-b from-gray-900 to-gray-800 text-white">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-6">If You're Still Unsure</h2>
+                
+                <p class="text-xl mb-4">If you're reading this page carefully, it usually means something important is at risk.</p>
+
+                <p class="text-lg mb-2">You don't need to decide on a long engagement.</p>
+                <p class="text-lg mb-2">You don't need to commit to a rebuild.</p>
+                <p class="text-lg mb-8">You don't need to justify the call internally yet.</p>
+
+                <div class="bg-white/10 border-l-4 border-white p-6 mb-10 max-w-2xl mx-auto">
+                    <p class="text-2xl font-bold">You just need clarity.</p>
+                </div>
+
+                <a href="#assessment" class="inline-flex items-center px-10 py-5 bg-rescue-red text-white text-xl font-bold rounded-lg hover:bg-rescue-dark transform hover:scale-105 transition-all shadow-2xl">
+                    <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+                    </svg>
+                    Schedule a Salesforce Assessment
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-bold mb-4">Salesforce Rescue</h3>
+                    <p class="text-gray-400 text-sm">Emergency Salesforce support when you need it most.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm">Home</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-white text-sm">Team</a></li>
+                        <li><a href="first-responder.html" class="text-gray-400 hover:text-white text-sm">Join Our Network</a></li>
+                        <li><a href="assessment.html" class="text-gray-400 hover:text-white text-sm">Free Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm mb-2">hello@salesforcerescue.com</p>
+                    <p class="text-gray-400 text-sm">Emergency response available</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-center text-gray-400 text-sm">&copy; 2025 Salesforce Rescue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
