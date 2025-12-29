@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Salesforce data loss recovery - mass deletes, data corruption, duplicate explosions. Emergency data recovery from senior Salesforce architects.">
+    <title>Data Loss & Corruption Recovery | Salesforce Rescue</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rescue-red': '#dc2626',
+                        'rescue-dark': '#991b1b',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="antialiased bg-white">
+    <!-- Header -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-rescue-red tracking-tight">Salesforce Rescue</a>
+                </div>
+                <div class="flex items-center gap-6">
+                    <a href="index.html" class="text-gray-700 hover:text-rescue-red font-medium transition-colors">Home</a>
+                    <a href="team.html" class="text-gray-700 hover:text-rescue-red font-medium transition-colors">Team</a>
+                    <a href="first-responder.html" class="text-gray-700 hover:text-rescue-red font-medium transition-colors">Join Us</a>
+                    <a href="assessment.html" class="inline-flex items-center px-4 py-2 bg-rescue-red text-white text-sm font-semibold rounded-lg hover:bg-rescue-dark transition-colors">
+                        Free Assessment
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="bg-gradient-to-b from-gray-900 to-gray-800 text-white py-20">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <div class="inline-flex items-center px-4 py-2 bg-rescue-red rounded-full mb-6">
+                    <span class="font-semibold text-sm">DATA LOSS & CORRUPTION RECOVERY</span>
+                </div>
+                <h1 class="text-5xl sm:text-6xl font-extrabold mb-6">
+                    When Your Salesforce<br>Data Disappears
+                </h1>
+                <p class="text-xl sm:text-2xl text-gray-300 max-w-3xl mx-auto mb-10">
+                    Mass deletes. Corrupted imports. Duplicate explosions. We've seen it all — and we know how to fix it.
+                </p>
+                <a href="assessment.html" class="inline-flex items-center px-10 py-5 bg-rescue-red text-white text-xl font-bold rounded-lg hover:bg-rescue-dark transform hover:scale-105 transition-all shadow-2xl">
+                    Get Emergency Data Recovery Help
+                    <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+
+        <!-- Main Content -->
+        <section class="py-16 sm:py-20 bg-white">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="prose prose-lg max-w-none">
+                    <h2 class="text-3xl font-bold text-gray-900 mb-6">Data Loss, Corruption, and Integrity Failures</h2>
+                    
+                    <p class="text-xl text-gray-700 mb-8">Few Salesforce events create panic faster than data problems. One moment, everything seems fine. The next, critical records are gone, duplicates are multiplying, or reports show impossible numbers.</p>
+
+                    <div class="bg-red-50 border-l-4 border-rescue-red p-6 mb-8">
+                        <p class="text-lg font-semibold text-gray-900 mb-2">The stakes are immediate:</p>
+                        <ul class="list-disc list-inside space-y-2 text-gray-800">
+                            <li>Sales can't close deals without accurate opportunity data</li>
+                            <li>Service can't respond without customer history</li>
+                            <li>Finance can't report without reliable numbers</li>
+                            <li>Compliance obligations may be at risk</li>
+                        </ul>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Common Data Crisis Triggers</h3>
+                    
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">Human Error</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start text-gray-700">
+                                    <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>Accidental mass deletes</strong> – Wrong filter criteria, bulk action gone wrong</span>
+                                </li>
+                                <li class="flex items-start text-gray-700">
+                                    <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>Faulty Data Loader imports</strong> – CSV errors, encoding issues, wrong object selected</span>
+                                </li>
+                                <li class="flex items-start text-gray-700">
+                                    <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>Incorrect field mapping</strong> – Production data overwritten with sandbox data</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 class="text-xl font-bold text-gray-900 mb-4">System Issues</h4>
+                            <ul class="space-y-3">
+                                <li class="flex items-start text-gray-700">
+                                    <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>Duplicate record explosions</strong> – Matching rules disabled, batch jobs gone wild</span>
+                                </li>
+                                <li class="flex items-start text-gray-700">
+                                    <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>Sandbox refresh issues</strong> – Production assumptions overwritten</span>
+                                </li>
+                                <li class="flex items-start text-gray-700">
+                                    <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>Partial restore failures</strong> – Unclear gaps, relationship mismatches</span>
+                                </li>
+                                <li class="flex items-start text-gray-700">
+                                    <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                                    </svg>
+                                    <span><strong>Orphaned records</strong> – Relationships broken, reporting fails</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-6 mb-8">
+                        <p class="text-lg font-semibold text-gray-900 mb-2">Critical Reality:</p>
+                        <p class="text-gray-700">Data issues rarely exist in isolation. They often coexist with automation and integration failures, which compounds the damage and makes diagnosis exponentially harder.</p>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Our Data Recovery Approach</h3>
+
+                    <div class="space-y-6 mb-8">
+                        <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">1. Containment First</h4>
+                            <p class="text-gray-700">Before recovery, we stop the bleeding. Identify what's still corrupting data and shut it down immediately — even if it means disabling automation or pausing integrations.</p>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">2. Forensic Analysis</h4>
+                            <p class="text-gray-700">Determine the scope: What was affected? When did it start? What's the blast radius? We use Setup Audit Trail, Field History, API logs, and bulk query analysis to piece together what happened.</p>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">3. Surgical Recovery</h4>
+                            <p class="text-gray-700">Not all data needs to be restored. We identify critical vs. recoverable-later records, prioritize business-critical objects, and execute targeted recovery with validation at every step.</p>
+                        </div>
+
+                        <div class="bg-gradient-to-br from-gray-50 to-white border-2 border-gray-200 rounded-xl p-6">
+                            <h4 class="text-xl font-bold text-gray-900 mb-3">4. Prevention Architecture</h4>
+                            <p class="text-gray-700">Once stabilized, we implement guardrails: validation rules, process automation, backup strategies, and documentation so this specific failure mode can't happen again.</p>
+                        </div>
+                    </div>
+
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">Why Speed Matters</h3>
+
+                    <p class="text-gray-700 mb-4">Every minute of delay:</p>
+                    <ul class="space-y-3 mb-8">
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Allows bad data to propagate to downstream systems</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Makes forensic analysis harder (logs age out)</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Increases user confusion and workarounds</span>
+                        </li>
+                        <li class="flex items-start text-gray-700">
+                            <svg class="w-5 h-5 text-rescue-red mt-0.5 mr-3 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                            </svg>
+                            <span>Erodes trust in the system</span>
+                        </li>
+                    </ul>
+
+                    <div class="bg-gradient-to-br from-rescue-red to-red-800 text-white rounded-2xl p-8 text-center mb-8">
+                        <h3 class="text-2xl font-bold mb-4">We've recovered from:</h3>
+                        <div class="grid md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                            <div>
+                                <div class="text-4xl font-black mb-2">500K+</div>
+                                <div class="text-sm uppercase tracking-wide">Records Recovered</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-black mb-2">&lt; 4hrs</div>
+                                <div class="text-sm uppercase tracking-wide">Average Recovery Time</div>
+                            </div>
+                            <div>
+                                <div class="text-4xl font-black mb-2">100%</div>
+                                <div class="text-sm uppercase tracking-wide">Business Continuity</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-6">Data Crisis Happening Now?</h3>
+                        <a href="assessment.html" class="inline-flex items-center px-10 py-5 bg-rescue-red text-white text-xl font-bold rounded-lg hover:bg-rescue-dark transform hover:scale-105 transition-all shadow-2xl">
+                            Get Emergency Data Recovery
+                            <svg class="w-6 h-6 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-gray-900 border-t border-gray-800 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h3 class="text-white font-bold mb-4">Salesforce Rescue</h3>
+                    <p class="text-gray-400 text-sm">Emergency Salesforce support when you need it most.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Navigation</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white text-sm">Home</a></li>
+                        <li><a href="team.html" class="text-gray-400 hover:text-white text-sm">Team</a></li>
+                        <li><a href="first-responder.html" class="text-gray-400 hover:text-white text-sm">Join Our Network</a></li>
+                        <li><a href="assessment.html" class="text-gray-400 hover:text-white text-sm">Free Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contact</h4>
+                    <p class="text-gray-400 text-sm mb-2">hello@salesforcerescue.com</p>
+                    <p class="text-gray-400 text-sm">Emergency response available</p>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8">
+                <p class="text-center text-gray-400 text-sm">&copy; 2025 Salesforce Rescue. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
