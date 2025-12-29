@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Salesforce data loss recovery is complex. Learn why 70% of data loss is human error, why manual recovery takes 20+ days, and how expert emergency response can save your business.">
+    <meta name="keywords" content="Salesforce data loss, Salesforce data recovery, Salesforce emergency recovery, Salesforce data corruption, Salesforce backup failure, Salesforce data restore expert">
+    <title>Salesforce Data Loss Recovery | Expert Emergency Data Restoration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'rescue-red': '#dc2626',
+                        'rescue-dark': '#991b1b',
+                    },
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="font-inter bg-gray-50">
+    <!-- Header -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-2xl font-bold text-rescue-red">Salesforce Rescue</a>
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-700 hover:text-rescue-red transition">Home</a>
+                    <a href="team.html" class="text-gray-700 hover:text-rescue-red transition">Team</a>
+                    <a href="first-responder.html" class="text-gray-700 hover:text-rescue-red transition">Join Us</a>
+                    <a href="assessment.html" class="bg-rescue-red text-white px-6 py-2 rounded-lg hover:bg-rescue-dark transition">Get Help Now</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-br from-rescue-dark to-rescue-red text-white py-20">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto text-center">
+                <h1 class="text-5xl md:text-6xl font-bold mb-6">When Salesforce Data Loss Strikes, Every Minute Counts</h1>
+                <p class="text-xl md:text-2xl mb-8 text-gray-100">Enterprise Salesforce data is intricate. Restoring it under pressure is exponentially harder.</p>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6 border border-white/20">
+                    <p class="text-lg mb-4">After 30 minutes, data loss can critically impact your business financially. Manual recovery can take 20+ days. You need an expert who's done this hundreds of times.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">The Harsh Reality of Salesforce Data Loss</h2>
+            <div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <div class="text-center p-6 bg-red-50 rounded-lg border-2 border-rescue-red">
+                    <div class="text-5xl font-bold text-rescue-red mb-2">70%</div>
+                    <p class="text-gray-700 font-medium">of data loss is caused by human error, not Salesforce failures</p>
+                </div>
+                <div class="text-center p-6 bg-red-50 rounded-lg border-2 border-rescue-red">
+                    <div class="text-5xl font-bold text-rescue-red mb-2">$9.48M</div>
+                    <p class="text-gray-700 font-medium">average cost of a data breach in the United States (2023)</p>
+                </div>
+                <div class="text-center p-6 bg-red-50 rounded-lg border-2 border-rescue-red">
+                    <div class="text-5xl font-bold text-rescue-red mb-2">20+ Days</div>
+                    <p class="text-gray-700 font-medium">typical time to manually restore complex Salesforce data</p>
+                </div>
+            </div>
+            <div class="mt-12 max-w-3xl mx-auto text-center">
+                <p class="text-lg text-gray-700 mb-4">Data loss doesn't just mean downtime. It means:</p>
+                <div class="grid md:grid-cols-2 gap-4 text-left">
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-rescue-red flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-gray-700">Lost revenue from halted operations</span>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-rescue-red flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-gray-700">Eroded customer trust</span>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-rescue-red flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-gray-700">Compliance violations and regulatory fines</span>
+                    </div>
+                    <div class="flex items-start space-x-3">
+                        <svg class="w-6 h-6 text-rescue-red flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+                        </svg>
+                        <span class="text-gray-700">Permanent loss of business-critical information</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why It's So Complex -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-12 text-gray-900">Why Salesforce Data Recovery Is Deceptively Complex</h2>
+            <div class="max-w-4xl mx-auto">
+                <p class="text-lg text-gray-700 mb-8 text-center">Salesforce isn't just a database—it's an interconnected web of relationships, automations, and business logic. When data is lost, you can't just upload a CSV and call it done.</p>
+                
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-rescue-red">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Parent-Child Relationship Nightmares</h3>
+                        <p class="text-gray-700 mb-2">Your org's data relationships can be <strong>30 levels deep</strong>. Delete one Account record, and cascade deletes can wipe out thousands of related Contacts, Opportunities, Cases, and custom objects.</p>
+                        <p class="text-gray-600 text-sm">Reconstructing these relationships manually requires perfect sequencing: parents must be inserted before children, external IDs must be maintained, and lookup relationships must be meticulously rebuilt using VLOOKUP-style matching across multiple CSV files.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-rescue-red">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Data Transformation Minefield</h3>
+                        <p class="text-gray-700 mb-2">Salesforce automatically transforms data during restore operations. Record IDs change. Audit fields update. Auto-number fields break.</p>
+                        <p class="text-gray-600 text-sm">Expert recovery requires disabling validation rules, bypassing workflow automation, converting field types, managing governor limits, and applying pre/post-processing transformations to minimize data corruption by up to 80%.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-rescue-red">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Metadata Is Equally Critical</h3>
+                        <p class="text-gray-700 mb-2">Native Salesforce tools like the Recycle Bin and Weekly Data Export <strong>don't protect metadata</strong>—your custom objects, workflows, validation rules, permission sets, and configurations.</p>
+                        <p class="text-gray-600 text-sm">A corrupted permission model (like the infamous "Permageddon" incident) or a botched deployment can destroy months of customization work. CSV exports can't help you here.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-rescue-red">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">The Recycle Bin Illusion</h3>
+                        <p class="text-gray-700 mb-2">Your Recycle Bin holds deleted records for only <strong>15 days</strong> and is limited to 25 times your org's data storage. A large cascade delete can exceed this capacity instantly.</p>
+                        <p class="text-gray-600 text-sm">By the time you discover a data loss incident—especially from a bad integration or automation running in the background—the Recycle Bin has often already been emptied or overflowed.</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-rescue-red">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">Large Data Volume Operations</h3>
+                        <p class="text-gray-700 mb-2">Enterprise orgs with millions of records face unique challenges: API governor limits, bulk operation timeouts, and processing performance degradation.</p>
+                        <p class="text-gray-600 text-sm">Restoring 500 records manually via CSV can take 8+ hours. Scaling to millions requires sophisticated tooling and expertise—or an expert who knows how to navigate Salesforce's constraints.</p>
+                    </div>
+                </div>
+
+                <div class="mt-10 p-6 bg-rescue-red text-white rounded-lg">
+                    <p class="text-lg font-semibold mb-2">The Bottom Line:</p>
+                    <p>Salesforce data recovery isn't a technical problem—it's a specialized emergency requiring deep platform expertise, forensic analysis skills, and battle-tested recovery procedures. One wrong move can make the situation worse.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Common Scenarios -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <h2 class="text-4xl font-bold text-center mb-4 text-gray-900">Real-World Data Loss Scenarios</h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto">These aren't hypothetical. These are the kinds of emergencies we respond to regularly.</p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-rescue-red transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-bold text-gray-900">Data Loader Mass Delete</h3>
+                        <span class="bg-rescue-red text-white text-xs px-2 py-1 rounded">Critical</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">An admin runs a bulk delete with incorrect filter criteria, wiping out 10,000+ customer records and all related data across multiple objects.</p>
+                    <div class="text-xs text-gray-500 flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Recovery: 4-12 hours</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-rescue-red transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-bold text-gray-900">Integration Gone Wrong</h3>
+                        <span class="bg-orange-500 text-white text-xs px-2 py-1 rounded">Urgent</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Third-party integration misfires and systematically overwrites critical field values across your entire customer base, corrupting data relationships.</p>
+                    <div class="text-xs text-gray-500 flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Recovery: 6-18 hours</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-rescue-red transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-bold text-gray-900">Failed Migration</h3>
+                        <span class="bg-rescue-red text-white text-xs px-2 py-1 rounded">Critical</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Lightning migration or data consolidation project loses 90,000 attachments due to tool error. Discovery happens days later when recycle bin is already empty.</p>
+                    <div class="text-xs text-gray-500 flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Recovery: 1-3 days</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-rescue-red transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-bold text-gray-900">Bad Code Deployment</h3>
+                        <span class="bg-orange-500 text-white text-xs px-2 py-1 rounded">Urgent</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Poorly tested Apex trigger deploys to production and systematically updates field values incorrectly across multiple related objects for days before detection.</p>
+                    <div class="text-xs text-gray-500 flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Recovery: 8-24 hours</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-rescue-red transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-bold text-gray-900">CPQ Configuration Disaster</h3>
+                        <span class="bg-yellow-500 text-white text-xs px-2 py-1 rounded">High</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">CPQ misconfiguration or product catalog changes corrupt pricing data, quote line items, and order relationships. Thousands of quotes unusable.</p>
+                    <div class="text-xs text-gray-500 flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Recovery: 2-5 days</span>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 p-6 rounded-lg border border-gray-200 hover:border-rescue-red transition">
+                    <div class="flex items-start justify-between mb-3">
+                        <h3 class="text-lg font-bold text-gray-900">Permission Model Corruption</h3>
+                        <span class="bg-rescue-red text-white text-xs px-2 py-1 rounded">Critical</span>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-3">Permission set or profile changes cascade incorrectly, exposing sensitive data or blocking access. All profiles must be manually reconstructed from scratch.</p>
+                    <div class="text-xs text-gray-500 flex items-center">
+                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clip-rule="evenodd"/>
+                        </svg>
+                        <span>Recovery: 1-2 days</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- When Backup Fails -->
+    <section class="py-16 bg-gray-100">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-gray-900">When Prevention Isn't Enough</h2>
+                <p class="text-xl text-center text-gray-700 mb-12">Backup solutions are critical for prevention. But what happens when the emergency has already occurred?</p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mb-12">
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Backup Solutions Focus On:</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-700">Automated scheduled backups</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-700">Off-platform data storage</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-700">Self-service restore interfaces</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-blue-500 mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-700">Compliance and retention policies</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-lg shadow-sm">
+                        <h3 class="text-xl font-bold text-gray-900 mb-4">Emergency Response Handles:</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-700">No backup exists or too old</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-700">Backup restore itself fails</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-700">Partial corruption (not full loss)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <svg class="w-5 h-5 text-rescue-red mr-2 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-gray-700">Complex forensics and root cause</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-lg shadow-sm border-2 border-rescue-red">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">The Critical Gap: Expertise Under Pressure</h3>
+                    <p class="text-gray-700 mb-4">Backup tools are powerful, but they still require deep Salesforce expertise to use correctly during a crisis. When the emergency has already occurred:</p>
+                    <ul class="space-y-2 text-gray-700 mb-6">
+                        <li class="flex items-start">
+                            <span class="text-rescue-red mr-2">▸</span>
+                            <span>You need forensic analysis using Shield Event Monitoring to understand what happened and when</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-rescue-red mr-2">▸</span>
+                            <span>You need manual reconstruction of complex data models and relationships</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-rescue-red mr-2">▸</span>
+                            <span>You need someone who's solved this exact problem hundreds of times before</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-rescue-red mr-2">▸</span>
+                            <span>You need immediate action—no procurement delays, no implementation timeline</span>
+                        </li>
+                    </ul>
+                    <p class="text-gray-900 font-semibold">That's where emergency data loss response comes in.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expert Solution -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-center mb-8 text-gray-900">Expert Emergency Data Recovery</h2>
+                <p class="text-xl text-center text-gray-700 mb-12">When your Salesforce data is compromised, you need someone who's been in the trenches hundreds of times—and can get you operational in hours, not weeks.</p>
+
+                <div class="bg-gradient-to-br from-rescue-dark to-rescue-red text-white p-8 rounded-lg mb-12">
+                    <h3 class="text-2xl font-bold mb-4">The Salesforce Rescue Advantage</h3>
+                    <p class="text-lg mb-6">Led by Tyler Colby, a Senior Solutions Engineer with 20+ years of Salesforce expertise and specialized experience in emergency data loss remediation at Odaseva—where enterprise backup and recovery strategies are designed.</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Deep Technical Expertise:</h4>
+                            <ul class="space-y-2 text-gray-100">
+                                <li>• Large Data Volume (LDV) operations</li>
+                                <li>• CPQ configuration and quote reconstruction</li>
+                                <li>• Shield Event Monitoring and log analysis</li>
+                                <li>• Complex parent-child relationship restoration</li>
+                                <li>• Metadata recovery and org reconstruction</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-lg mb-3">Emergency Response Model:</h4>
+                            <ul class="space-y-2 text-gray-100">
+                                <li>• Rapid response within hours</li>
+                                <li>• No procurement or implementation delays</li>
+                                <li>• Expert execution, not just tool access</li>
+                                <li>• Root cause forensics included</li>
+                                <li>• Post-recovery documentation for compliance</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6 mb-12">
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <div class="text-4xl font-bold text-rescue-red mb-2">Hours</div>
+                        <p class="text-gray-700 font-medium">not weeks to begin recovery</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <div class="text-4xl font-bold text-rescue-red mb-2">20+ Years</div>
+                        <p class="text-gray-700 font-medium">of Salesforce expertise</p>
+                    </div>
+                    <div class="text-center p-6 bg-gray-50 rounded-lg">
+                        <div class="text-4xl font-bold text-rescue-red mb-2">100%</div>
+                        <p class="text-gray-700 font-medium">focus on your emergency</p>
+                    </div>
+                </div>
+
+                <div class="bg-gray-100 p-8 rounded-lg">
+                    <h3 class="text-2xl font-bold text-gray-900 mb-4">How Emergency Data Recovery Works</h3>
+                    <ol class="space-y-4">
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-rescue-red text-white rounded-full flex items-center justify-center font-bold mr-4">1</span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">Emergency Assessment (30-60 minutes)</h4>
+                                <p class="text-gray-700">Rapid analysis to understand scope, timeline, and recovery approach. No obligation.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-rescue-red text-white rounded-full flex items-center justify-center font-bold mr-4">2</span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">Forensic Analysis</h4>
+                                <p class="text-gray-700">Shield log analysis, data comparison, and root cause identification to understand exactly what happened.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-rescue-red text-white rounded-full flex items-center justify-center font-bold mr-4">3</span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">Expert Recovery Execution</h4>
+                                <p class="text-gray-700">Manual reconstruction, relationship restoration, validation, and testing—done by an expert who's solved this problem hundreds of times.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="flex-shrink-0 w-8 h-8 bg-rescue-red text-white rounded-full flex items-center justify-center font-bold mr-4">4</span>
+                            <div>
+                                <h4 class="font-bold text-gray-900 mb-1">Documentation & Prevention</h4>
+                                <p class="text-gray-700">Complete documentation for compliance/audit, plus recommendations to prevent recurrence.</p>
+                            </div>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-16 bg-gradient-to-br from-rescue-dark to-rescue-red text-white">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-4xl md:text-5xl font-bold mb-6">Don't Let Data Loss Become a Business Disaster</h2>
+            <p class="text-xl mb-8 max-w-3xl mx-auto">If you're facing a Salesforce data loss emergency—or want to understand your risk before disaster strikes—get a free emergency assessment from an expert who's been in the trenches.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="assessment.html" class="bg-white text-rescue-red px-8 py-4 rounded-lg text-lg font-bold hover:bg-gray-100 transition shadow-lg">Get a Free Emergency Assessment</a>
+                <a href="index.html" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg text-lg font-bold hover:bg-white/10 transition">Learn More About Our Services</a>
+            </div>
+            <p class="mt-6 text-gray-200 text-sm">Average response time: Under 2 hours</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4 text-rescue-red">Salesforce Rescue</h3>
+                    <p class="text-gray-400">Expert emergency response for Salesforce crises. When minutes matter.</p>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Services</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition">Emergency Response</a></li>
+                        <li><a href="salesforce-data-loss.html" class="hover:text-white transition">Data Loss Recovery</a></li>
+                        <li><a href="assessment.html" class="hover:text-white transition">Emergency Assessment</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="team.html" class="hover:text-white transition">Our Team</a></li>
+                        <li><a href="first-responder.html" class="hover:text-white transition">Join Our Team</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>Email: <a href="mailto:hello@salesforcerescue.com" class="hover:text-white transition">hello@salesforcerescue.com</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-400">
+                <p>&copy; 2025 Salesforce Rescue. Expert Salesforce emergency response services.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
