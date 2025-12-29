@@ -83,25 +83,26 @@
                             <label class="block text-lg font-bold text-gray-900 mb-3">
                                 1. What's broken?
                             </label>
+                            <p class="text-sm text-gray-600 mb-2">Select all that apply</p>
                             <div class="space-y-2">
                                 <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
-                                    <input type="radio" name="q1" value="10" class="mt-1 mr-3" onchange="updateScore()">
+                                    <input type="checkbox" name="q1" value="10" class="mt-1 mr-3" onchange="updateScore()">
                                     <span class="text-gray-700">Users can't access Salesforce at all</span>
                                 </label>
                                 <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
-                                    <input type="radio" name="q1" value="8" class="mt-1 mr-3" onchange="updateScore()">
+                                    <input type="checkbox" name="q1" value="8" class="mt-1 mr-3" onchange="updateScore()">
                                     <span class="text-gray-700">Data looks wrong/corrupted</span>
                                 </label>
                                 <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
-                                    <input type="radio" name="q1" value="7" class="mt-1 mr-3" onchange="updateScore()">
+                                    <input type="checkbox" name="q1" value="7" class="mt-1 mr-3" onchange="updateScore()">
                                     <span class="text-gray-700">Specific feature/process not working</span>
                                 </label>
                                 <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
-                                    <input type="radio" name="q1" value="6" class="mt-1 mr-3" onchange="updateScore()">
+                                    <input type="checkbox" name="q1" value="6" class="mt-1 mr-3" onchange="updateScore()">
                                     <span class="text-gray-700">Integration stopped working</span>
                                 </label>
                                 <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
-                                    <input type="radio" name="q1" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <input type="checkbox" name="q1" value="5" class="mt-1 mr-3" onchange="updateScore()">
                                     <span class="text-gray-700">Performance issues/slowness</span>
                                 </label>
                             </div>
@@ -137,25 +138,26 @@
                             <label class="block text-lg font-bold text-gray-900 mb-3">
                                 3. What's the business impact?
                             </label>
+                            <p class="text-sm text-gray-600 mb-2">Select all that apply</p>
                             <div class="space-y-2">
                                 <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
-                                    <input type="radio" name="q3" value="10" class="mt-1 mr-3" onchange="updateScore()">
+                                    <input type="checkbox" name="q3" value="10" class="mt-1 mr-3" onchange="updateScore()">
                                     <span class="text-gray-700">Revenue/deals at risk RIGHT NOW</span>
                                 </label>
                                 <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
-                                    <input type="radio" name="q3" value="9" class="mt-1 mr-3" onchange="updateScore()">
+                                    <input type="checkbox" name="q3" value="9" class="mt-1 mr-3" onchange="updateScore()">
                                     <span class="text-gray-700">Compliance/legal exposure</span>
                                 </label>
                                 <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
-                                    <input type="radio" name="q3" value="8" class="mt-1 mr-3" onchange="updateScore()">
+                                    <input type="checkbox" name="q3" value="8" class="mt-1 mr-3" onchange="updateScore()">
                                     <span class="text-gray-700">Critical deadline approaching</span>
                                 </label>
                                 <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
-                                    <input type="radio" name="q3" value="5" class="mt-1 mr-3" onchange="updateScore()">
+                                    <input type="checkbox" name="q3" value="5" class="mt-1 mr-3" onchange="updateScore()">
                                     <span class="text-gray-700">Operations disrupted but working around it</span>
                                 </label>
                                 <label class="flex items-start p-4 border-2 border-gray-200 rounded-lg hover:border-rescue-red cursor-pointer transition-colors">
-                                    <input type="radio" name="q3" value="2" class="mt-1 mr-3" onchange="updateScore()">
+                                    <input type="checkbox" name="q3" value="2" class="mt-1 mr-3" onchange="updateScore()">
                                     <span class="text-gray-700">Annoying but not urgent</span>
                                 </label>
                             </div>
@@ -251,23 +253,30 @@
             const formData = new FormData(form);
             let total = 0;
             
+            // Sum all selected values (supports multi-select checkboxes)
             for (let value of formData.values()) {
                 total += parseInt(value);
             }
             
+            // Cap score at 100
+            total = Math.min(total, 100);
+            
             currentScore = total;
-            const percentage = (total / 50) * 100; // Max score is 50
+            const percentage = total; // Score is already 0-100
             
             document.getElementById('scoreDisplay').textContent = total + '/100';
-            document.getElementById('severityMeter').style.width = Math.min(percentage * 2, 100) + '%';
+            document.getElementById('severityMeter').style.width = percentage + '%';
             
-            // Update label
+            // Update label based on current score
             let label = 'Low Risk';
             if (total > 70) label = 'CRITICAL ⚠️';
             else if (total > 50) label = 'HIGH RISK';
             else if (total > 30) label = 'ELEVATED';
             
             document.getElementById('severityLabel').textContent = label;
+            
+            // Debug log for testing
+            console.log('Assessment Score Updated:', total);
         }
         
         function showResults() {
